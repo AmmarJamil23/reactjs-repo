@@ -1,0 +1,8 @@
+components is just a function
+function based componenets are
+preferred more. A componenet is just
+a function who is made of of html like code
+
+
+PROPS: 
+used to pass data between components . => props.name , props.title
