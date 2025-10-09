@@ -1,0 +1,3 @@
+useEffect
+=> It is a hook that can be used to generate side effect.
+=> used to connect DB , fetch API
