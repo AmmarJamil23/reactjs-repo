@@ -1,0 +1,9 @@
+Prop-drilling:
+
+useContext:
+=> Three steps
+1 - create useContext
+2- provide
+3- consume
+can send data from parent to child irrespective of hierarchy
+problem (prop drilling)
