@@ -1,0 +1,3 @@
+router => www.example/about   is a router
+          www.example/info  is a router
+          www.example/blogs is a route
