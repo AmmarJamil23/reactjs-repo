@@ -4,7 +4,7 @@ import Page1Content from './Page1Content'
 
 const Section1 = () => {
   return (
-    <div className='h-screen w-full bg-blue-950 text-white'>
+    <div className='h-screen w-full bg-zinc-400 text-white'>
         <Navbar />
         <Page1Content />
         </div>
