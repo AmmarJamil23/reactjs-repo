@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  margin: 10rem;
+  padding: 10px;
+}
+
+input {
+  margin: 20px;
+  padding: 10px 20px;
+}
+
+.box {
+  margin: 0;
+  width: 100px;
+  height: 101px;
+  background-color: blue;
+}
