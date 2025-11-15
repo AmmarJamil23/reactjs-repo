@@ -61,13 +61,13 @@ const App = () => {
           <h1 className='text-3xl font-bold'>Recent Notes</h1>
 
       <div className='flex flex-wrap gap-5 mt-5 h-full border-l-2 overflow-auto'>
-          <div className='h-52 w-40 rounded-2xl bg-white'></div>
-         <div className='h-52 w-40 rounded-2xl bg-white'></div>
-          <div className='h-52 w-40 rounded-2xl bg-white'></div>
-           <div className='h-52 w-40 rounded-2xl bg-white'></div>
-            <div className='h-52 w-40 rounded-2xl bg-white'></div>
-             <div className='h-52 w-40 rounded-2xl bg-white'></div>
-              <div className='h-52 w-40 rounded-2xl bg-white'></div>
+         {task.map(function(elem, idx){
+         return <div key={idx} className='h-52 w-40 px-4 py-8 bg-cover rounded text-black bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAZiRIBKbZmja-YbH5swhNMf-WcFTpOS4zSQ&s)] '>
+          <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
+          <p className='mt-3 leading-tight font-medium text-gray-700'>{elem.details}</p>
+         </div>
+         })}
+        
       </div>
 
       </div>
