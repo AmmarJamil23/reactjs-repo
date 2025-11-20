@@ -18,9 +18,7 @@ const App = () => {
     
   }
 
-  function bChanging() {
-    console.log(" B value is changing");
-  }
+ 
 
   useEffect(function() {
     aChanging();
