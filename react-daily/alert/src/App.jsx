@@ -1,17 +1,29 @@
 import React from 'react'
 import Alert from "./features/alert"
+import { useState } from "react";
 
 const App = () => {
+  const [showAlert, setShowAlert] = useState(true);
   return (
-    <>
+    
     <div className='p-10 space-y-4'>
-      <Alert message="Login successful" type="success" />
-      <Alert message="Something went wwrong" type="error" />
-      <Alert message="Be careful with this action" type="warning" />
-      <Alert message="Just letting you know" type="info" />
+      {showAlert && (
+        <Alert
+         message="Profile updated successfully"
+         type="success"
+         onClose={() => setShowAlert(false)}
+         />
+      )}
+
+      <button
+      onClick={() => setShowAlert(true)}
+      className='px-4 py-2 bg-blue-600 text-white rounded'
+      >
+        Show Alert Again
+      </button>
       
     </div>
-    </>
+    
   )
 }
 

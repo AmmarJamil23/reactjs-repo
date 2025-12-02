@@ -1,7 +1,10 @@
 import React from 'react'
 import { CheckCircle, XCircle, AlertTriangle, Info, X } from "lucide-react"
 
-const Alert = ({ message = "Default alert", type = "info"}) => {
+const Alert = ({ message = "Default alert", 
+  type = "info",
+  onClose = () => {}
+}) => {
 
     const colors = {
         success: "bg-green-100 text-green-800 border-green-300",
@@ -9,8 +12,11 @@ const Alert = ({ message = "Default alert", type = "info"}) => {
         warning: "bg-yellow-100 text-yellow-800 border-yellow-300",
         info: "bg-blue-100 text-blue-800 border-blue-300"
     }
+
+    const baseClasses = "p-4 border rounded flex items-start gap-3 transition-all duration-300";
+
   return (
-    <div className={ `p-4 border rounded ${colors[type]}`} >
+    <div className={`${baseClasses} ${colors[type]}`} >
       <span className='mt-1'>
         {type === "success" && <CheckCircle size={20} />}
         {type === "error" && <XCircle size={20} />}
@@ -21,10 +27,14 @@ const Alert = ({ message = "Default alert", type = "info"}) => {
 
         <div className='flex-1'>{message}</div>
 
-        <button onClick={() => {
-          alert("Close button clicked ")
-        }} className='text-sm text-gray-600 hover:text-black'>
-          <X size={20} />
+        <button
+        onClick={onClose}
+        className='text-gray-600 hover:text-black group'
+        >
+          <X 
+  className="w-5 h-5 group-hover:w-7 group-hover:h-7 transition-all" 
+/>
+
         </button>
     </div>
   )
