@@ -4,6 +4,10 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Dashboard from "./components/Dashboard";
 import Navbar from './components/Navbar';
+import Param from './components/Param';
+import Courses from "./components/Courses";
+import Reports from "./components/Reports"
+import Mock from "./components/Mock";
 
 const router = createBrowserRouter(
   [
@@ -26,7 +30,7 @@ const router = createBrowserRouter(
       element: <div>
         <Navbar />
         <Dashboard />
-      </div>
+      </div>,
     }
   ]
 )

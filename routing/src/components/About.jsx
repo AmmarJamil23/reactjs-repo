@@ -1,8 +1,19 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const About = () => {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/dashboard");
+
+  }
   return (
-    <div>About</div>
+    <div>
+      <button onClick={handleClick}>
+        Move to DAshboard page
+      </button>
+    </div>
   )
 }
 
