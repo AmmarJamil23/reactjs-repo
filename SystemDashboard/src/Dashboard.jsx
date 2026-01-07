@@ -1,24 +1,29 @@
 import { useEffect, useState } from "react";
 import MetricsPanel from "./MetricsPanel";
-
+import ActivityLog from "./ActivityLog";
 
 function Dashboard() {
     const [systemLoad, setSystemLoad] = useState(30);
+    const [logs, setLogs] = useState([]);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setSystemLoad((prevLoad) => {
-                if (prevLoad >= 90) return 30
-                return prevLoad + 1
+            setSystemLoad((prev) => {
+                const next = prev >= 90 ? 30 : prev + 1
+
+                setLogs((oldLogs) => [
+                    ...oldLogs,
+                    {
+                        message: `System Load changed to ${next}%`,
+                        time: Date.now()
+                    }
+                ])
+                return next
             })
         }, 1000)
 
-        return () => {
-            clearInterval(intervalId);
-        }
-    });
-
-    console.log("Dashboard rendered", systemLoad);
+        return () => clearInterval(intervalId)
+    }, [])
 
     return (
         <div>
@@ -33,6 +38,7 @@ function Dashboard() {
             
 
             <MetricsPanel load={systemLoad} />
+            <ActivityLog logs={logs} />
 
         </div>
     )
