@@ -1,39 +1,13 @@
-import { useEffect, useState } from "react";
 import MetricsPanel from "./MetricsPanel";
 import ActivityLog from "./ActivityLog";
 import ControlPanel from "./ControlPanel";
+import useSystemMonitor from "./useSystemMonitor";
 
 function Dashboard() {
-    const [systemLoad, setSystemLoad] = useState(30);
-    const [logs, setLogs] = useState([]);
-    const [threshold, setThreshold] = useState(70);
-    const [paused, setPaused] = useState(false);
-
-    useEffect(() => {
-        if (paused) return
-
-        const intervalId = setInterval(() => {
-            setSystemLoad((prev) => {
-                const next = prev >= 90 ? 30 : prev + 1
-
-                setLogs((oldLogs) => [
-                    ...oldLogs,
-                    {
-                        message:
-                        next > threshold
-                        ? `ALERT load crossed ${threshold}%` 
-                        : `System load changed to ${next}%`,
-
-                        time: Date.now()
-
-                    }
-                ])
-                return next
-            })
-        }, 1000)
-
-        return () => clearInterval(intervalId)
-    }, [paused, threshold])
+    const {
+        systemLoad, logs, threshold, setThreshold , paused, setPaused
+    } = useSystemMonitor()
+ 
 
     return (
         <div>
@@ -47,17 +21,14 @@ function Dashboard() {
             </button> */}
             <ControlPanel
             threshold={threshold}
-            setThreshold={setThreshold}
-            paused={paused}
-            setPaused={setPaused}
+            setThreshold={}
             />
-            
+         
 
-            <MetricsPanel load={systemLoad} />
-            <ActivityLog logs={logs} />
+            
 
         </div>
     )
 }
 
-export default Dashboard;
+export default Dashboard;;
